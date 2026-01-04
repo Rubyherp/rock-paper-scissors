@@ -1,7 +1,11 @@
+//Scores
 let humanScore = 0;
 let computerScore = 0;
 let roundTracker = 0;
+let isAutoPlaying = false;
+let autoplayIntervalId = null;
 
+//Selectors
 const rock = document.querySelector('.rock');
 const paper = document.querySelector('.paper');
 const scissors = document.querySelector('.scissors');
@@ -10,12 +14,14 @@ const reset = document.querySelector('.reset');
 const autoplay = document.querySelector('.autoplay');
 const control = document.querySelector('.control');
 
+//Event listeners
 rock.addEventListener('click', () => playRound('rock'));
 paper.addEventListener('click', () => playRound('paper'));
 scissors.addEventListener('click', () => playRound('scissors'));
 reset.addEventListener('click', resetting);
 autoplay.addEventListener('click', autoplaying);
 
+//Functions
 function getComputerChoice() {
     const randNum = Math.random()
     let choice = undefined;
@@ -86,9 +92,6 @@ function resetting() {
     scr.appendChild(newdiv2);
 }
 
-let isAutoPlaying = false;
-let autoplayIntervalId = null;
-
 function autoplaying() {
     isAutoPlaying = !isAutoPlaying;
     autoplay.textContent = "Auto Playing!";
@@ -107,7 +110,7 @@ function autoplaying() {
     }
 }
 
-
+//Outdated
 // function isValidPlayerMove(playerMove) {
     //     return playerMove === 'rock' || playerMove === 'paper' || playerMove === 'scissors';
     // }
